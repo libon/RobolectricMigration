@@ -12,8 +12,9 @@ jobs:
   read_release_version:
     runs-on: ubuntu-latest
     steps:
-      - name: read version name
+      - name: what am i doing
         run: ls
+      - name: read version name
         run: echo ::set-env name=VERSION::$(grep versionName app/build.gradle |sed -e 's/^.*versionName "//g;s/"//g')
   update_release_draft:
     needs: read_release_version
