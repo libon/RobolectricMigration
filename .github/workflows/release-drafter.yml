@@ -9,12 +9,20 @@ on:
       - '*'
 
 jobs:
+  read_release_version:
+    runs-on: ubuntu-latest
+    steps:
+      - name: read version name
+        run: echo ::set-env name=VERSION::$(grep versionName app/build.gradle |sed -e 's/^.*versionName "//g;s/"//g')
   update_release_draft:
+    needs: read_release_version
     runs-on: ubuntu-latest
     steps:
       # Drafts your next Release notes as Pull Requests are merged into "master"
       - uses: release-drafter/release-drafter@v5
         with:
+          tag: ${{ env.VERSION }}
+          version: ${{ env.VERSION }}
           publish: ${{ startsWith(github.ref, 'refs/tags') }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
