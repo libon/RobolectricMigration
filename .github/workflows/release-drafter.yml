@@ -13,12 +13,10 @@ jobs:
     needs: read_release_version
     runs-on: ubuntu-latest
     steps:
-      - name: read version name
-        uses: actions/checkout@v2
+      - uses: actions/checkout@v2
         run: echo ::set-env name=VERSION::$(grep versionName $GITHUB_WORKSPACE/app/build.gradle |sed -e 's/^.*versionName "//g;s/"//g')
       # Drafts your next Release notes as Pull Requests are merged into "master"
-      - name: create or update release
-        uses: release-drafter/release-drafter@v5
+      - uses: release-drafter/release-drafter@v5
         with:
           tag: ${{ env.VERSION }}
           version: ${{ env.VERSION }}
