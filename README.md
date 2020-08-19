@@ -1,5 +1,6 @@
 This is a sample app to test out the [Robolectric 4.0 automatic migration tool](http://robolectric.org/automated-migration/).
 
+
 The documentation instructs us to add the following config to a gradle file:
 
 ```
