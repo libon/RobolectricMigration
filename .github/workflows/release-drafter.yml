@@ -12,10 +12,11 @@ jobs:
   read_release_version:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v2
       - name: what am i doing pwd
         run: pwd
       - name: what am i doing ls
-        run: ls
+        run: ls $GITHUB_WORKSPACE
       - name: read version name
         run: echo ::set-env name=VERSION::$(grep versionName app/build.gradle |sed -e 's/^.*versionName "//g;s/"//g')
   update_release_draft:
