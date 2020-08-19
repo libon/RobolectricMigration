@@ -19,6 +19,7 @@ jobs:
       - uses: release-drafter/release-drafter@v5
         with:
           tag: ${{ env.VERSION }}
+          name: ${{ env.VERSION }}
           version: ${{ env.VERSION }}
           publish: ${{ startsWith(github.ref, 'refs/tags') }}
         env:
