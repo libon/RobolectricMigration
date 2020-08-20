@@ -20,6 +20,7 @@ jobs:
          # if this workflow was launched from a tag, use that tag, otherwise leave the tag blank
          echo ::set-env name=TAG::$([[ $GITHUB_REF == refs/tags/* ]] && echo $GITHUB_REF | sed -e  "s/refs.tags.//g")
       - name: read name
+        run: |
          # the name is the tag if available, otherwise it's the version
          echo ::set-env name=NAME::$([[ $TAG != "" ]] && echo $TAG || echo $NAME)
       # Drafts your next Release notes as Pull Requests are merged into "master"
