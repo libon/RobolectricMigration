@@ -1,10 +1,13 @@
 categories:
   - title: '🚀 Features'
     labels:
-      - 'enhancement'
+      - 'feature ✨'
   - title: '🐛 Bug Fixes'
     labels:
-      - 'bug'
+      - 'bug 🐜'
+  - title: 'payment :moneybag:'
+    labels:
+      - 'payment :moneybag:'
 
 template: |
   $CHANGES
