@@ -22,7 +22,7 @@ jobs:
       - name: read name
         run: |
          # the name is the tag if available, otherwise it's the version
-         echo ::set-env name=NAME::$([[ $TAG != "" ]] && echo $TAG || echo $NAME)
+         echo ::set-env name=NAME::$([[ $TAG != "" ]] && echo $TAG || echo $VERSION)
       # Drafts your next Release notes as Pull Requests are merged into "master"
       - uses: release-drafter/release-drafter@v5
         with:
